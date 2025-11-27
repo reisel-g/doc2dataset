@@ -33,7 +33,7 @@ Open document layer and doc→dataset pipeline for LLMs, with NumGuard numeric i
 ### 1. Build the CLI
 
 ```bash
-git clone https://github.com/<org>/3dcf.git
+git clone https://github.com/3DCF-Labs/3dcf.git
 cd 3dcf
 
 # Build and run the main CLI without installing
