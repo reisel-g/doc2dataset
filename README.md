@@ -236,8 +236,6 @@ The canonical evaluation corpora and metrics are distributed via GitHub Releases
 
 4. You should now have an `eval/` directory with `README.md`, raw documents, and JSONL metrics.
 
-The `eval/` directory is intentionally **not committed to git**; add it to `.gitignore` and treat it as a local cache of evaluation runs.
-
 ## Examples & recipes
 
 - `examples/doc2dataset/openai-finetune/` – OpenAI finetune JSONL export.
