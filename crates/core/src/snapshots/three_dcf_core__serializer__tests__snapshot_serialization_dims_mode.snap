@@ -1,0 +1,10 @@
+---
+source: crates/core/src/serializer.rs
+expression: rendered
+---
+<ctx3d grid=coarse codeset=HASH256 preset=unknown budget=auto>
+(z=0,x=10,y=20,w=700,h=20,code=0101010101010101,rle=0,imp=100,type=TEXT) "Hello world"
+(z=0,x=10,y=60,w=700,h=40,code=0202020202020202,rle=0,imp=120,type=TABLE) "[table rows=3 cols=7]"
+
+grammar: --select "z=0,x=0..1024,y=0..4096"
+</ctx3d>

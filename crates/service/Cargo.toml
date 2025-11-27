@@ -1,0 +1,21 @@
+[package]
+name = "three_dcf_service"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+anyhow.workspace = true
+axum = { version = "0.7", features = ["multipart", "macros"] }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+three_dcf_core = { path = "../core" }
+three_dcf_rag = { path = "../rag" }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tempfile = "3"
+toml.workspace = true

@@ -1,0 +1,23 @@
+[package]
+name = "three_dcf_rag"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+anyhow.workspace = true
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+three_dcf_core = { path = "../core" }
+three_dcf_llm = { path = "../llm" }
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+rusqlite = { version = "0.31", features = ["bundled", "functions", "serde_json"] }
+age.workspace = true
+once_cell = "1"
+base64.workspace = true
+parking_lot = "0.12"
+bytemuck = { version = "1", features = ["extern_crate_alloc"] }
+chrono = { version = "0.4", features = ["clock"] }

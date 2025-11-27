@@ -1,0 +1,16 @@
+[package]
+name = "three_dcf_py"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+name = "three_dcf_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.21", features = ["extension-module", "abi3-py38"] }
+thiserror = "1"
+three_dcf_core = { path = "../core" }

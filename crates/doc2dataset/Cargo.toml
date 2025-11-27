@@ -1,0 +1,29 @@
+[package]
+name = "doc2dataset"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+walkdir = "2"
+glob = "0.3"
+tokio = { version = "1", features = ["rt-multi-thread"] }
+three_dcf_core = { path = "../core" }
+three_dcf_index = { path = "../index" }
+three_dcf_llm = { path = "../llm" }
+serde_yaml = "0.9"
+csv = "1"
+html2md = "0.2"
+flate2 = { version = "1" }
+configparser = "1"
+toml.workspace = true
+
+[dev-dependencies]
+tempfile = "3"
+serde_yaml = "0.9"

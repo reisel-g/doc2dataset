@@ -1,0 +1,57 @@
+[workspace]
+members = [
+    "crates/core",
+    "crates/cli",
+    "crates/rag",
+    "crates/service",
+    "crates/index",
+    "crates/llm",
+    "crates/doc2dataset",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+authors = ["3DCF Contributors"]
+license = "Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+anyhow = "1"
+blake3 = "1"
+bytes = "1"
+clap = { version = "4", features = ["derive"] }
+futures = "0.3"
+hdrhistogram = "7"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "tiff", "bmp"] }
+html2text = "0.5"
+hex = "0.4"
+itertools = "0.12"
+pulldown-cmark = "0.10"
+opentelemetry = "0.23"
+prost = "0.12"
+prost-types = "0.12"
+pdf-extract = "0.10"
+rayon = "1"
+regex = "1"
+rstar = "0.11"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+thiserror = "1"
+tiktoken-rs = "0.5"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+zstd = { version = "0.13", default-features = false, features = ["zstdmt"] }
+sha1 = "0.10"
+sha2 = "0.10"
+strsim = "0.11"
+base64 = "0.21"
+rustc-hash = "1.1"
+sysinfo = "0.30"
+age = "0.10"
+secrecy = "0.8"
+
+[workspace.metadata]
+description = "3DCF/doc2dataset workspace"

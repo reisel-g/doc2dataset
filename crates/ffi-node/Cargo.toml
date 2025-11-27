@@ -1,0 +1,20 @@
+[package]
+name = "three_dcf_node"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+name = "three_dcf_node"
+
+[dependencies]
+napi = { version = "2.16", default-features = false, features = ["napi4"] }
+napi-derive = "2.16"
+thiserror = "1"
+three_dcf_core = { path = "../core" }
+
+[build-dependencies]
+napi-build = "1.3"
