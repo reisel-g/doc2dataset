@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>3DCF RAG Console</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 1.5rem; background: #f5f5f7; }
+    h1 { margin-top: 0; }
+    .panel { background: #fff; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+    label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+    input[type="text"], textarea, select { width: 100%; padding: 0.65rem 0.75rem; border: 1px solid #ccd1d9; border-radius: 8px; margin-bottom: 0.8rem; font-size: 1rem; }
+    button { background: #111827; color: #fff; border: none; padding: 0.7rem 1.2rem; border-radius: 8px; font-size: 1rem; cursor: pointer; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .source { border-left: 4px solid #1f2937; padding-left: 0.75rem; margin: 0.75rem 0; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.5rem; font-size: 0.9rem; }
+    .metric { background: #f3f4f6; padding: 0.6rem; border-radius: 8px; }
+    pre { white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body>
+  <h1>3DCF RAG Demo</h1>
+  <div class="panel">
+    <h2>Upload document</h2>
+    <form id="upload-form">
+      <label>Collection name</label>
+      <input type="text" id="upload-collection" value="demo" required />
+      <label>Preset</label>
+      <input type="text" id="upload-preset" value="reports" />
+      <label>Sensitivity</label>
+      <select id="upload-sensitivity">
+        <option value="public">Public</option>
+        <option value="internal">Internal</option>
+        <option value="confidential">Confidential</option>
+        <option value="restricted">Restricted</option>
+      </select>
+      <input type="file" id="upload-file" required />
+      <button type="submit">Index PDF</button>
+      <span id="upload-status"></span>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h2>Ask collection</h2>
+    <label>Collection</label>
+    <input type="text" id="ask-collection" value="demo" />
+    <label>Question</label>
+    <textarea id="ask-question" rows="3" placeholder="What is the late payment grace period?"></textarea>
+    <label>Provider</label>
+    <select id="ask-provider">
+      <option value="openai">OpenAI</option>
+      <option value="anthropic">Anthropic</option>
+      <option value="gemini">Gemini</option>
+      <option value="deepseek">DeepSeek</option>
+    </select>
+    <label>Model</label>
+    <input type="text" id="ask-model" placeholder="gpt-4.1-mini" />
+    <label>Top K</label>
+    <input type="text" id="ask-topk" value="10" />
+    <button id="ask-button">Ask</button>
+    <span id="ask-status"></span>
+  </div>
+
+  <div class="panel" id="answer-panel" style="display:none;">
+    <h2>Answer</h2>
+    <pre id="answer-text"></pre>
+    <h3>Metrics</h3>
+    <div class="metrics" id="answer-metrics"></div>
+    <h3>Sources</h3>
+    <div id="answer-sources"></div>
+  </div>
+
+  <script>
+    const uploadForm = document.getElementById('upload-form');
+    const uploadStatus = document.getElementById('upload-status');
+    uploadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      uploadStatus.textContent = 'Uploading...';
+      const collection = document.getElementById('upload-collection').value.trim();
+      const fileInput = document.getElementById('upload-file');
+      if (!fileInput.files.length) {
+        uploadStatus.textContent = 'Pick a file first';
+        return;
+      }
+      const form = new FormData();
+      form.append('file', fileInput.files[0]);
+      const params = new URLSearchParams({
+        preset: document.getElementById('upload-preset').value,
+        sensitivity: document.getElementById('upload-sensitivity').value,
+      });
+      try {
+        const res = await fetch(`/rag/collections/${encodeURIComponent(collection)}/documents?${params.toString()}`, {
+          method: 'POST',
+          body: form,
+        });
+        if (!res.ok) throw new Error(await res.text());
+        const json = await res.json();
+        uploadStatus.textContent = `Indexed ${json.cells_indexed} cells`;
+        fileInput.value = '';
+      } catch (err) {
+        uploadStatus.textContent = `Error: ${err}`;
+      }
+    });
+
+    const askButton = document.getElementById('ask-button');
+    const askStatus = document.getElementById('ask-status');
+    askButton.addEventListener('click', async () => {
+      const question = document.getElementById('ask-question').value.trim();
+      const collection = document.getElementById('ask-collection').value.trim();
+      const provider = document.getElementById('ask-provider').value;
+      const model = document.getElementById('ask-model').value.trim();
+      const topK = document.getElementById('ask-topk').value || '10';
+      if (!question) {
+        askStatus.textContent = 'Ask something first';
+        return;
+      }
+      askStatus.textContent = 'Retrieving...';
+      try {
+        const res = await fetch('/rag/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ collection, question, provider, model, top_k: Number(topK) }),
+        });
+        if (!res.ok) throw new Error(await res.text());
+        const json = await res.json();
+        renderAnswer(json);
+        askStatus.textContent = 'Done';
+      } catch (err) {
+        askStatus.textContent = `Error: ${err}`;
+      }
+    });
+
+    function renderAnswer(payload) {
+      document.getElementById('answer-panel').style.display = 'block';
+      document.getElementById('answer-text').textContent = payload.answer;
+      const metricsNode = document.getElementById('answer-metrics');
+      metricsNode.innerHTML = '';
+      for (const [key, value] of Object.entries(payload.metrics)) {
+        const item = document.createElement('div');
+        item.className = 'metric';
+        item.textContent = `${key}: ${value}`;
+        metricsNode.appendChild(item);
+      }
+      const sourcesNode = document.getElementById('answer-sources');
+      sourcesNode.innerHTML = '';
+      payload.used_cells.forEach((cell, idx) => {
+        const div = document.createElement('div');
+        div.className = 'source';
+        div.innerHTML = `<strong>Source ${idx + 1}</strong> – ${cell.document_source} (page ${cell.page}, score ${cell.score.toFixed(2)})<br>${cell.text}`;
+        sourcesNode.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
