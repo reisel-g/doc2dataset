@@ -6,6 +6,7 @@ Open document layer and doc→dataset pipeline for LLMs, with NumGuard numeric i
 
 ## Documentation
 
+- [Research paper (PDF)](./docs/doc2dataset_paper.pdf)
 - [Technical Report / Spec](./3dcf_doc2dataset_spec.md)
 - [CLI guide](./docs/CLI.md)
 - [Configuration guide](./docs/CONFIG.md)
